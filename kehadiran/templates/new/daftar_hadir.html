@@ -1,0 +1,101 @@
+{% extends "layout/base.html" %}
+{% block content %}      
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Daftar Izin</h1>
+                    <ol class="breadcrumb" style="margin-bottom: 5px;">
+                      <li><a href="/">Beranda</a></li>
+                      <li class="active">Daftar Izin</li>
+                    </ol>
+                    <br />
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Daftar pengajuan izin Anda
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form action="/daftar_hadir/" method="POST" role="form" class="form-inline">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <label>Tahun</label>
+                                            <select name="tahun" class="form-control">
+                                                <option value="2016">2016</option>
+                                                <option value="2015">2015</option>
+                                                <option value="2014">2014</option>
+                                            </select>                          
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Bulan</label>
+                                            <select name="bulan" class="form-control">
+                                                <option value="01">Januari</option>
+                                                <option value="02">Februari</option>
+                                                <option value="03">Maret</option>
+                                                <option value="04">April</option>
+                                                <option value="05">Mei</option>
+                                                <option value="06">Juni</option>
+                                                <option value="07">Juli</option>
+                                                <option value="08">Agustus</option>
+                                                <option value="09">September</option>
+                                                <option value="10">Oktober</option>
+                                                <option value="11">November</option>
+                                                <option value="12">Desember</option>
+                                            </select>                          
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="submit" class="btn btn-primary" value="Submit" />
+                                        </div>
+                                    </form>
+                                    <br/>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <td>Tanggal</td>
+                                                    <td>Status</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% if daftar_hadir %}
+                                                    {% for hadir in daftar_hadir %}
+                                                    <tr>
+                                                        <td>{{ forloop.counter }}</td>
+                                                        <td>{{ hadir.waktu }}</td>
+                                                        <td>{{ hadir.jenis_kehadiran }}</td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                {% else %}
+                                                <tr>
+                                                    <td colspan="3" style="text-align:center;">Tidak ada data kehadiran saat ini...</td>
+                                                </tr>
+                                                {% endif %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.table-responsive -->
+                                    <br/>
+                                    {% if daftar_hadir %}
+                                    <a href="/daftar_hadir/grafik/{{ bulan }}/{{ tahun }}" class="btn btn-info"><i class="fa fa-bar-chart-o"></i> Tampilkan Grafik</a>
+                                    <a href="/daftar_hadir/cetak/{{ bulan }}/{{ tahun }}" class="btn btn-primary"><i class="fa fa-file-pdf-o"></i> Cetak PDF</a>
+                                    {% endif %}
+                                </div>
+                                <!-- /.col-lg-4 (nested) -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-8 -->
+            </div>
+            <!-- /.row -->
+{% endblock %}

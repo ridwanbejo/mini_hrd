@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<htmL>
+	<head>
+		<title>Mini HRD</title>
+	</head>
+	<body>
+		<h1>Form Pengajuan Izin Kerja</h1>
+		
+		<form action="/pengajuan_izin/" method="POST">
+		    {% csrf_token %}
+		    {{ form.as_p }}
+		    <input type="submit" value="Submit" />
+		</form>
+
+		<p><a href="/">Kembali ke Profil</a></p>
+	</body>
+</htmL>

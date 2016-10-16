@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<htmL>
+	<head>
+		<title>Mini HRD</title>
+	</head>
+	<body>
+		<h1>Silahkan Login</h1>
+		<form>
+			<h1>Profil Anda ({{ request.session.jenis_akun }})</h1>
+			<p>Hi, {{ request.session.username }}</p>
+			<p>Nama: {{ karyawan.nama }}</p>
+			<p>Alamat: {{ karyawan.alamat }}</p>
+			<p>Jenis Kelamin: {{ karyawan.jenis_kelamin }}</p>
+			<p>Jenis Karyawan: {{ karyawan.jenis_karyawan }}</p>
+			<p>No Telepon: {{ karyawan.no_telepon }}</p>
+			<p>Email: {{ karyawan.email }}</p>
+			<p>No Rekening: {{ karyawan.no_rekening }}</p>
+			<p>Pemilik Rekening: {{ karyawan.pemilik_rekening }}</p>
+			<p>Divisi: {{ karyawan.divisi.nama }}</p>
+			<p>Jabatan: {{ karyawan.jabatan.nama }}</p>
+			<p>
+				<a href="/logout/">Log out</a> | 
+				<a href="/daftar_hadir/">Kehadiran</a> | 
+				<a href="/pengajuan_izin/">Pengajuan Izin</a> | 
+				<a href="/daftar_izin/">Daftar Izin</a> 
+			</p>
+		</form>
+	</body>
+</htmL>

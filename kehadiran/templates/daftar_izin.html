@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<htmL>
+	<head>
+		<title>Mini HRD</title>
+	</head>
+	<body>
+		<h1>Daftar Izin</h1>
+		<table border="1">
+			<thead>
+				<tr>
+					<td>No</td>
+					<td>Jenis Izin</td>
+					<td>Waktu Mulai</td>
+					<td>Waktu Berhenti</td>
+					<td>Alasan</td>
+					<td>Disetujui</td>
+				</tr>
+			</thead>
+			<tbody>
+				{% if daftar_izin %}
+					{% for izin in daftar_izin %}
+					<tr>
+						<td>{{ forloop.counter }}</td>
+						<td>{{ izin.jenis_kehadiran }}</td>
+						<td>{{ izin.waktu_mulai }}</td>
+						<td>{{ izin.waktu_berhenti }}</td>
+						<td>{{ izin.alasan }}</td>
+						<td>
+							{% if izin.disetujui %}
+							Sudah
+							{% else %}
+							Belum
+							{% endif %}
+						</td>
+					</tr>
+					{% endfor %}
+				{% else %}
+				<tr>
+					<td colspan="3">Tidak ada data pengajuan izin saat ini...</td>
+				</tr>
+				{% endif %}
+			</tbody>
+		</table>
+		<p><a href="/">Kembali ke Profil</a></p>
+	</body>
+</htmL>

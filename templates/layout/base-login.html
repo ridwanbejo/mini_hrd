@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    {% include "layout/head.html" %}
+
+</head>
+
+<body>
+
+    <div id="container">
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+    <!-- /#wrapper -->
+
+    {% include "layout/js.html" %}
+
+    {% block inline_js %}
+    {% endblock %}
+</body>
+
+</html>

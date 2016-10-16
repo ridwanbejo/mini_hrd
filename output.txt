@@ -1,0 +1,83 @@
+ridwanfajar@ridwanfajar-ThinkPad-L420 ~/Projects/my_projects/django/mini_hrd $ python manage.py makemigrations
+No changes detected
+
+ridwanfajar@ridwanfajar-ThinkPad-L420 ~/Projects/my_projects/django/mini_hrd $ python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, contenttypes, auth, sessions
+Running migrations:
+  Rendering model states... DONE
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying sessions.0001_initial... OK
+
+ridwanfajar@ridwanfajar-ThinkPad-L420 ~/Projects/my_projects/django/mini_hrd $ python manage.py makemigrations
+Migrations for 'kehadiran':
+  0001_initial.py:
+    - Create model Kehadiran
+Migrations for 'karyawan':
+  0001_initial.py:
+    - Create model Akun
+    - Create model Divisi
+    - Create model Jabatan
+    - Create model Karyawan
+    - Add field karyawan to akun
+
+
+ridwanfajar@ridwanfajar-ThinkPad-L420 ~/Projects/my_projects/django/mini_hrd $ python manage.py migrate
+Operations to perform:
+  Apply all migrations: kehadiran, sessions, admin, karyawan, contenttypes, auth
+Running migrations:
+  Rendering model states... DONE
+  Applying karyawan.0001_initial... OK
+  Applying kehadiran.0001_initial... OK
+
+ridwanfajar@ridwanfajar-ThinkPad-L420 ~/Projects/my_projects/django/mini_hrd $ python manage.py createsuperuser
+Username (leave blank to use 'ridwanfajar'): 
+Email address: ridwanbejo@gmail.com
+Password: 
+Password (again): 
+Superuser created successfully.
+
+<<<< ================================================================================================================================== >>>>
+
+$ python manage.py startapp homepage
+
+<<<< ================================================================================================================================== >>>>
+
+ridwanfajar@ridwanfajar-ThinkPad-L420 ~/Projects/my_projects/django/mini_hrd $ python manage.py makemigrations
+Migrations for 'kehadiran':
+  0002_izin.py:
+    - Create model Izin
+ridwanfajar@ridwanfajar-ThinkPad-L420 ~/Projects/my_projects/django/mini_hrd $ python manage.py migrate
+Operations to perform:
+  Apply all migrations: kehadiran, sessions, admin, karyawan, contenttypes, auth
+Running migrations:
+  Rendering model states... DONE
+  Applying kehadiran.0002_izin... OK
+ridwanfajar@ridwanfajar-ThinkPad-L420 ~/Projects/my_projects/django/mini_hrd $
+
+<<<< ================================================================================================================================== >>>>
+
+$ pip install reportlab
+
+
+ridwanfajar@ridwanfajar-ThinkPad-L420 ~/Projects/my_projects/django/mini_hrd $ python manage.py makemigrations
+Migrations for 'karyawan':
+  0002_karyawan_foto.py:
+    - Add field foto to karyawan
+ridwanfajar@ridwanfajar-ThinkPad-L420 ~/Projects/my_projects/django/mini_hrd $ python manage.py migrate
+Operations to perform:
+  Apply all migrations: kehadiran, sessions, admin, karyawan, contenttypes, auth
+Running migrations:
+  Rendering model states... DONE
+  Applying karyawan.0002_karyawan_foto... OK
+ridwanfajar@ridwanfajar-ThinkPad-L420 ~/Projects/my_projects/django/mini_hrd $

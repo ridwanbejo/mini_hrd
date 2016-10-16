@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<htmL>
+	<head>
+		<title>Mini HRD</title>
+	</head>
+	<body>
+		<h1>Daftar Hadir</h1>
+		<form action='/daftar_hadir/' method="POST">
+			{% csrf_token %}
+			<select name="tahun">
+				<option value="2016">2016</option>
+				<option value="2015">2015</option>
+				<option value="2014">2014</option>
+			</select>
+			<select name="bulan">
+				<option value="01">Januari</option>
+				<option value="02">Februari</option>
+				<option value="03">Maret</option>
+				<option value="04">April</option>
+				<option value="05">Mei</option>
+				<option value="06">Juni</option>
+				<option value="07">Juli</option>
+				<option value="08">Agustus</option>
+				<option value="09">September</option>
+				<option value="10">Oktober</option>
+				<option value="11">November</option>
+				<option value="12">Desember</option>
+			</select>
+			<input type="submit" value="Tampilkan" />
+		</form>
+		<br/>
+		<table border="1">
+			<thead>
+				<tr>
+					<td>No</td>
+					<td>Tanggal</td>
+					<td>Status</td>
+				</tr>
+			</thead>
+			<tbody>
+				{% if daftar_hadir %}
+					{% for hadir in daftar_hadir %}
+					<tr>
+						<td>{{ forloop.counter }}</td>
+						<td>{{ hadir.waktu }}</td>
+						<td>{{ hadir.jenis_kehadiran }}</td>
+					</tr>
+					{% endfor %}
+				{% else %}
+				<tr>
+					<td colspan="3">Tidak ada data kehadiran saat ini...</td>
+				</tr>
+				{% endif %}
+			</tbody>
+		</table>
+		<p><a href="/">Kembali ke Profil</a></p>
+	</body>
+</htmL>
