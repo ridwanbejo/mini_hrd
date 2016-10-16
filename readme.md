@@ -8,9 +8,8 @@ Daftar isi:
 * Memasang Template Web di Django: memecah template, penempatan assets js dan css
 * Memasang Morris.js di Django
 * Mengenal Pagination dan templatetags di Django
-* Menghasilkan PDF di Django dengan Reportlab #ongoing
+* Menghasilkan PDF di Django dengan Reportlab
 * Upload Foto di Django
-* Pengenalan Django Rest Framework
 
 Reference:
 
